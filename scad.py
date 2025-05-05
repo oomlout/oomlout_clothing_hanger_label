@@ -121,7 +121,7 @@ def make_scad(**kwargs):
         part = copy.deepcopy(part_default)
         p3 = copy.deepcopy(kwargs)
         p3["width"] = 5
-        p3["height"] = 4
+        p3["height"] = 5
         p3["thickness"] = 9
         #p3["extra"] = ""
         part["kwargs"] = p3
@@ -189,15 +189,15 @@ def get_base(thing, **kwargs):
         p3 = copy.deepcopy(kwargs)
         p3["type"] = "n"
         p3["shape"] = f"oobb_cube"
-        hei = 49
+        hei = 56.5
         wid = 74
         dep = depth_cutout
         size = [wid, hei, dep]
         p3["size"] = size        
-        p3["m"] = "#"
+        #p3["m"] = "#"
         pos1 = copy.deepcopy(pos)
         pos1[0] += 0
-        pos1[1] += -5
+        pos1[1] += -8.75
         pos1[2] += (depth - depth_cutout)  /2
         p3["pos"] = pos1
         oobb_base.append_full(thing,**p3)
@@ -207,15 +207,15 @@ def get_base(thing, **kwargs):
         p3 = copy.deepcopy(kwargs)
         p3["type"] = "n"
         p3["shape"] = f"oobb_cube"
-        hei = 53
+        hei = 60.5
         wid = 60
         dep = depth_cutout
         size = [wid, hei, dep]
         p3["size"] = size        
-        p3["m"] = "#"
+        #p3["m"] = "#"
         pos1 = copy.deepcopy(pos)
         pos1[0] += 0
-        pos1[1] += -3
+        pos1[1] += -6.75
         pos1[2] += (depth - depth_cutout)  /2
         p3["pos"] = pos1
         oobb_base.append_full(thing,**p3)
@@ -225,10 +225,10 @@ def get_base(thing, **kwargs):
         p3 = copy.deepcopy(kwargs)
         p3["type"] = "n"
         p3["shape"] = f"oobb_cylinder"        
-        p3["radius"] = depth_cutout/2
-        dep = 59
+        p3["radius"] = 7.5/2
+        dep = 74
         p3["depth"] = dep
-        p3["m"] = "#"
+        #p3["m"] = "#"
         pos1 = copy.deepcopy(pos)
         pos1[0] += 0
         pos1[1] += dep/2
@@ -239,6 +239,52 @@ def get_base(thing, **kwargs):
         p3["rot"] = rot1
         oobb_base.append_full(thing,**p3)
 
+    #add holes
+        p3 = copy.deepcopy(kwargs)
+        p3["type"] = "n"
+        p3["shape"] = f"oobb_cylinder"        
+        p3["radius"] = 7.5/2
+        dep = 66.5
+        p3["depth"] = dep
+        p3["m"] = "#"
+        pos1 = copy.deepcopy(pos)
+        pos1[0] += 0
+        pos1[1] += dep/2 - 7.5/2
+        pos1[2] += dep/2 + depth/2
+        p3["pos"] = pos1
+        rot1 = copy.deepcopy(rot)
+        rot1[0] = 90
+        p3["rot"] = rot1
+        oobb_base.append_full(thing,**p3)
+
+    #add countersunk screws
+    if True:
+        p3 = copy.deepcopy(kwargs)
+        p3["type"] = "n"
+        p3["shape"] = f"oobb_screw_countersunk"
+        p3["radius_name"] = "m3"
+        p3["depth"] = depth
+        p3["nut"] = True
+        p3["overhang"] = True
+        p3["m"] = "#"
+        pos1 = copy.deepcopy(pos)
+        pos1[0] += 0
+        pos1[1] += 0
+        pos1[2] += depth
+        poss = []
+        shift_x = width/2 * 15-15/2
+        shift_y = height/2 * 15-15/2
+        pos11 = copy.deepcopy(pos1)
+        pos11[0] += shift_x
+        pos11[1] += shift_y
+        poss.append(pos11)
+        pos22 = copy.deepcopy(pos1)
+        pos22[0] += -shift_x
+        pos22[1] += shift_y
+        poss.append(pos22)
+        p3["pos"] = poss
+        oobb_base.append_full(thing,**p3)
+
     if prepare_print:
         #put into a rotation object
         components_second = copy.deepcopy(thing["components"])
@@ -246,12 +292,13 @@ def get_base(thing, **kwargs):
         return_value_2["type"]  = "rotation"
         return_value_2["typetype"]  = "p"
         pos1 = copy.deepcopy(pos)
-        pos1[0] += 50
+        pos1[0] += 100
         return_value_2["pos"] = pos1
+        pos1[2] += depth + depth_cutout
         return_value_2["rot"] = [180,0,0]
         return_value_2["objects"] = components_second
         
-        #thing["components"].append(return_value_2)
+        thing["components"].append(return_value_2)
 
     
         #add slice # top
@@ -261,7 +308,7 @@ def get_base(thing, **kwargs):
         pos1 = copy.deepcopy(pos)
         pos1[0] += 0
         pos1[1] += 0
-        pos1[2] += depth/2
+        pos1[2] += depth_cutout + (depth - depth_cutout) /2
         p3["pos"] = pos1
         #p3["m"] = "#"
         oobb_base.append_full(thing,**p3)

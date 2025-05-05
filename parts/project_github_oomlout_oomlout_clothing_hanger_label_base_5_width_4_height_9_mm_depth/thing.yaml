@@ -17,7 +17,7 @@ kwargs:
   height: 4
   modes:
   - 3dpr
-  navigation: true
+  navigation: false
   oomp_classification: project
   oomp_color: oomlout_clothing_hanger_label
   oomp_description_extra: ''
@@ -25,12 +25,11 @@ kwargs:
   oomp_manufacturer: ''
   oomp_mode: project
   oomp_part_number: ''
-  oomp_run: true
+  oomp_run: false
   oomp_size: oomlout
   oomp_type: github
   overwrite: true
   thickness: 9
-  typ: all
   type: oomlout_clothing_hanger_label_base
   width: 5
 manufacturer: ''
@@ -90,8 +89,8 @@ thing:
       - 0
       - 29.5
       - 4.5
-      r: 3.0
-      radius: 3.0
+      r: 3.75
+      radius: 3.75
       rot: &id002
       - 90
       - 0
@@ -105,7 +104,7 @@ thing:
       inclusion: 3dpr
       m: '#'
       pos: *id001
-      r: 3.0
+      r: 3.75
       rot: *id002
       shape: cylinder
       type: negative
@@ -116,17 +115,108 @@ thing:
       inclusion: 'true'
       m: '#'
       pos: *id001
-      r: 3.0
-      radius: 3.0
+      r: 3.75
+      radius: 3.75
       rot: *id002
       shape: cylinder
       type: negative
       width: 5
+  - objects:
+    - - depth: 9
+        height: 4
+        pos:
+        - 0
+        - 0
+        - 0
+        shape: rounded_rectangle
+        size:
+        - 74
+        - 59
+        - 9
+        type: positive
+        width: 5
+    - - - height: 4
+          m: '#'
+          pos:
+          - -37.0
+          - -29.5
+          - 1.5
+          shape: cube
+          size:
+          - 74
+          - 49
+          - 6
+          type: negative
+          width: 5
+    - - - height: 4
+          m: '#'
+          pos:
+          - -30.0
+          - -29.5
+          - 1.5
+          shape: cube
+          size:
+          - 60
+          - 53
+          - 6
+          type: negative
+          width: 5
+    - - depth: 59
+        h: 59
+        height: 4
+        inclusion: laser
+        m: '#'
+        pos: &id003
+        - 0
+        - 29.5
+        - 4.5
+        r: 3.75
+        radius: 3.75
+        rot: &id004
+        - 90
+        - 0
+        - 0
+        shape: cylinder
+        type: negative
+        width: 5
+      - depth: 59
+        h: 59
+        height: 4
+        inclusion: 3dpr
+        m: '#'
+        pos: *id003
+        r: 3.75
+        rot: *id004
+        shape: cylinder
+        type: negative
+        width: 5
+      - depth: 59
+        h: 59
+        height: 4
+        inclusion: 'true'
+        m: '#'
+        pos: *id003
+        r: 3.75
+        radius: 3.75
+        rot: *id004
+        shape: cylinder
+        type: negative
+        width: 5
+    pos:
+    - 100
+    - 0
+    - 15
+    rot:
+    - 180
+    - 0
+    - 0
+    type: rotation
+    typetype: p
   - - height: 4
       pos:
       - -250.0
       - -250.0
-      - 4.5
+      - 7.5
       shape: cube
       size:
       - 500
@@ -138,7 +228,7 @@ thing:
       pos:
       - -250.0
       - -250.0
-      - 4.5
+      - 7.5
       shape: cube
       size:
       - 500
@@ -150,7 +240,7 @@ thing:
       pos:
       - -250.0
       - -250.0
-      - 4.5
+      - 7.5
       shape: cube
       size:
       - 500
@@ -164,7 +254,7 @@ thing:
     height: 4
     modes:
     - 3dpr
-    navigation: true
+    navigation: false
     oomp_classification: project
     oomp_color: oomlout_clothing_hanger_label
     oomp_description_extra: ''
@@ -172,7 +262,7 @@ thing:
     oomp_manufacturer: ''
     oomp_mode: project
     oomp_part_number: ''
-    oomp_run: true
+    oomp_run: false
     oomp_size: oomlout
     oomp_type: github
     overwrite: true
@@ -180,10 +270,9 @@ thing:
     - 0
     - 0
     - 0
-    save_type: all
+    save_type: none
     shape: oobb_plate
     thickness: 9
-    typ: all
     type: positive
     width: 5
   - filter: ''
@@ -191,7 +280,7 @@ thing:
     m: '#'
     modes:
     - 3dpr
-    navigation: true
+    navigation: false
     oomp_classification: project
     oomp_color: oomlout_clothing_hanger_label
     oomp_description_extra: ''
@@ -199,7 +288,7 @@ thing:
     oomp_manufacturer: ''
     oomp_mode: project
     oomp_part_number: ''
-    oomp_run: true
+    oomp_run: false
     oomp_size: oomlout
     oomp_type: github
     overwrite: true
@@ -207,14 +296,13 @@ thing:
     - 0
     - -5
     - 1.5
-    save_type: all
+    save_type: none
     shape: oobb_cube
     size:
     - 74
     - 49
     - 6
     thickness: 9
-    typ: all
     type: n
     width: 5
   - filter: ''
@@ -222,7 +310,7 @@ thing:
     m: '#'
     modes:
     - 3dpr
-    navigation: true
+    navigation: false
     oomp_classification: project
     oomp_color: oomlout_clothing_hanger_label
     oomp_description_extra: ''
@@ -230,7 +318,7 @@ thing:
     oomp_manufacturer: ''
     oomp_mode: project
     oomp_part_number: ''
-    oomp_run: true
+    oomp_run: false
     oomp_size: oomlout
     oomp_type: github
     overwrite: true
@@ -238,14 +326,13 @@ thing:
     - 0
     - -3
     - 1.5
-    save_type: all
+    save_type: none
     shape: oobb_cube
     size:
     - 60
     - 53
     - 6
     thickness: 9
-    typ: all
     type: n
     width: 5
   - depth: 59
@@ -254,7 +341,7 @@ thing:
     m: '#'
     modes:
     - 3dpr
-    navigation: true
+    navigation: false
     oomp_classification: project
     oomp_color: oomlout_clothing_hanger_label
     oomp_description_extra: ''
@@ -262,7 +349,7 @@ thing:
     oomp_manufacturer: ''
     oomp_mode: project
     oomp_part_number: ''
-    oomp_run: true
+    oomp_run: false
     oomp_size: oomlout
     oomp_type: github
     overwrite: true
@@ -270,22 +357,21 @@ thing:
     - 0
     - 29.5
     - 34.0
-    radius: 3.0
+    radius: 3.75
     rot:
     - 90
     - 0
     - 0
-    save_type: all
+    save_type: none
     shape: oobb_cylinder
     thickness: 9
-    typ: all
     type: n
     width: 5
   - filter: ''
     height: 4
     modes:
     - 3dpr
-    navigation: true
+    navigation: false
     oomp_classification: project
     oomp_color: oomlout_clothing_hanger_label
     oomp_description_extra: ''
@@ -293,26 +379,25 @@ thing:
     oomp_manufacturer: ''
     oomp_mode: project
     oomp_part_number: ''
-    oomp_run: true
+    oomp_run: false
     oomp_size: oomlout
     oomp_type: github
     overwrite: true
     pos:
     - 0
     - 0
-    - 4.5
-    save_type: all
+    - 7.5
+    save_type: none
     shape: oobb_slice
     thickness: 9
-    typ: all
     type: n
     width: 5
   components_string:
-  - oobb_plate_shape_positive_type_9_depth_all_typ_all_save_type_true_navigation_true_overwrite_'3dpr'_modes_project_oomp_mode_true_oomp_run_5_width_4_height_9_thickness_project_oomp_classification_github_oomp_type_oomlout_oomp_size_oomlout_clothing_hanger_label_oomp_color
-  - oobb_cube_shape_n_type_0_-5_1.5_pos_all_typ_all_save_type_true_navigation_true_overwrite_'3dpr'_modes_project_oomp_mode_true_oomp_run_5_width_4_height_9_thickness_project_oomp_classification_github_oomp_type_oomlout_oomp_size_oomlout_clothing_hanger_label_oomp_color_74_49_6_size
-  - oobb_cube_shape_n_type_0_-3_1.5_pos_all_typ_all_save_type_true_navigation_true_overwrite_'3dpr'_modes_project_oomp_mode_true_oomp_run_5_width_4_height_9_thickness_project_oomp_classification_github_oomp_type_oomlout_oomp_size_oomlout_clothing_hanger_label_oomp_color_60_53_6_size
-  - oobb_cylinder_shape_n_type_59_depth_0_29.5_34.0_pos_all_typ_all_save_type_true_navigation_true_overwrite_'3dpr'_modes_project_oomp_mode_true_oomp_run_5_width_4_height_9_thickness_project_oomp_classification_github_oomp_type_oomlout_oomp_size_oomlout_clothing_hanger_label_oomp_color_3.0_radius_90_0_0_rot
-  - oobb_slice_shape_n_type_0_0_4.5_pos_all_typ_all_save_type_true_navigation_true_overwrite_'3dpr'_modes_project_oomp_mode_true_oomp_run_5_width_4_height_9_thickness_project_oomp_classification_github_oomp_type_oomlout_oomp_size_oomlout_clothing_hanger_label_oomp_color
+  - oobb_plate_shape_positive_type_9_depth_none_save_type_false_navigation_true_overwrite_'3dpr'_modes_project_oomp_mode_false_oomp_run_5_width_4_height_9_thickness_project_oomp_classification_github_oomp_type_oomlout_oomp_size_oomlout_clothing_hanger_label_oomp_color
+  - oobb_cube_shape_n_type_0_-5_1.5_pos_none_save_type_false_navigation_true_overwrite_'3dpr'_modes_project_oomp_mode_false_oomp_run_5_width_4_height_9_thickness_project_oomp_classification_github_oomp_type_oomlout_oomp_size_oomlout_clothing_hanger_label_oomp_color_74_49_6_size
+  - oobb_cube_shape_n_type_0_-3_1.5_pos_none_save_type_false_navigation_true_overwrite_'3dpr'_modes_project_oomp_mode_false_oomp_run_5_width_4_height_9_thickness_project_oomp_classification_github_oomp_type_oomlout_oomp_size_oomlout_clothing_hanger_label_oomp_color_60_53_6_size
+  - oobb_cylinder_shape_n_type_59_depth_0_29.5_34.0_pos_none_save_type_false_navigation_true_overwrite_'3dpr'_modes_project_oomp_mode_false_oomp_run_5_width_4_height_9_thickness_project_oomp_classification_github_oomp_type_oomlout_oomp_size_oomlout_clothing_hanger_label_oomp_color_3.75_radius_90_0_0_rot
+  - oobb_slice_shape_n_type_0_0_7.5_pos_none_save_type_false_navigation_true_overwrite_'3dpr'_modes_project_oomp_mode_false_oomp_run_5_width_4_height_9_thickness_project_oomp_classification_github_oomp_type_oomlout_oomp_size_oomlout_clothing_hanger_label_oomp_color
   description: oomlout clothing hanger label base 5x4x9
   description_extra: ''
   description_main: 5_width_4_height_9_mm_depth

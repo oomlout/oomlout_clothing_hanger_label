@@ -3,6 +3,19 @@ $fn = 50;
 
 difference() {
 	union() {
+		//insert trace.svg with a lift of 3 mm
+		translate(v = [0, 0, 4.5]) {
+		linear_extrude(height = 2) {
+					translate(v = [100, 0, 100]) {
+						scale(v = [0.5, 0.5, 0.5]) {
+								rotate(a = [180, 0, 0]) {
+									import("trace.svg", center = true);
+								}
+						}
+					}
+				}
+		}
+		
 		translate(v = [100, 0, 15]) {
 			rotate(a = [180, 0, 0]) {
 				difference() {
