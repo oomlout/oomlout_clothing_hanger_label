@@ -118,20 +118,26 @@ def make_scad(**kwargs):
         part_default["full_shift"] = [0, 0, 0]
         part_default["full_rotations"] = [0, 0, 0]
         
-        part = copy.deepcopy(part_default)
-        p3 = copy.deepcopy(kwargs)
-        p3["width"] = 5
-        p3["height"] = 5
-        p3["thickness"] = 9
-        #p3["extra"] = ""
-        part["kwargs"] = p3
-        nam = "base"
-        part["name"] = nam
-        if oomp_mode == "oobb":
-            p3["oomp_size"] = nam
-        if not test:
-            pass
-            parts.append(part)
+
+        extras = []
+        extras.append("clothes_hanger_shirt_plastic_450_mm_width_145_mm_length_6_mm_depth_sos_cintres_au45ad")
+
+        for ex in extras:
+            part = copy.deepcopy(part_default)
+            p3 = copy.deepcopy(kwargs)
+            p3["width"] = 5
+            p3["height"] = 5
+            p3["thickness"] = 9
+            if ex != "":
+                p3["extra"] = ex
+            part["kwargs"] = p3
+            nam = "base"
+            part["name"] = nam
+            if oomp_mode == "oobb":
+                p3["oomp_size"] = nam
+            if not test:
+                pass
+                parts.append(part)
 
 
     kwargs["parts"] = parts
@@ -140,13 +146,12 @@ def make_scad(**kwargs):
 
     #generate navigation
     if navigation:
-        sort = []
-        #sort.append("extra")
+        sort = []        
         sort.append("name")
         sort.append("width")
         sort.append("height")
         sort.append("thickness")
-        
+        sort.append("extra")
         scad_help.generate_navigation(sort = sort)
 
 
@@ -183,79 +188,66 @@ def get_base(thing, **kwargs):
     p3["pos"] = pos1
     #oobb_base.append_full(thing,**p3)
 
-    #add cutout big
     depth_cutout = 6
-    if True:
-        p3 = copy.deepcopy(kwargs)
-        p3["type"] = "n"
-        p3["shape"] = f"oobb_cube"
-        hei = 46.5
-        wid = 74
-        dep = depth_cutout
-        size = [wid, hei, dep]
-        p3["size"] = size        
-        #p3["m"] = "#"
-        pos1 = copy.deepcopy(pos)
-        pos1[0] += 0
-        pos1[1] += -3.75
-        pos1[2] += (depth - depth_cutout)  /2
-        p3["pos"] = pos1
-        oobb_base.append_full(thing,**p3)
+    if extra == "clothes_hanger_shirt_plastic_450_mm_width_145_mm_length_6_mm_depth_sos_cintres_au45ad": 
+        #add cutout big
+        depth_cutout = 6
+        if True:
+            p3 = copy.deepcopy(kwargs)
+            p3["type"] = "n"
+            p3["shape"] = f"oobb_cube"
+            hei = 46.5
+            wid = 74
+            dep = depth_cutout
+            size = [wid, hei, dep]
+            p3["size"] = size        
+            #p3["m"] = "#"
+            pos1 = copy.deepcopy(pos)
+            pos1[0] += 0
+            pos1[1] += -3.75
+            pos1[2] += (depth - depth_cutout)  /2
+            p3["pos"] = pos1
+            oobb_base.append_full(thing,**p3)
 
-    #little cutout
-    if True:
-        p3 = copy.deepcopy(kwargs)
-        p3["type"] = "n"
-        p3["shape"] = f"oobb_cube"
-        hei = 50.5
-        wid = 60
-        dep = depth_cutout
-        size = [wid, hei, dep]
-        p3["size"] = size        
-        #p3["m"] = "#"
-        pos1 = copy.deepcopy(pos)
-        pos1[0] += 0
-        pos1[1] += -1.75
-        pos1[2] += (depth - depth_cutout)  /2
-        p3["pos"] = pos1
-        oobb_base.append_full(thing,**p3)
+        #little cutout
+        if True:
+            p3 = copy.deepcopy(kwargs)
+            p3["type"] = "n"
+            p3["shape"] = f"oobb_cube"
+            hei = 50.5
+            wid = 60
+            dep = depth_cutout
+            size = [wid, hei, dep]
+            p3["size"] = size        
+            #p3["m"] = "#"
+            pos1 = copy.deepcopy(pos)
+            pos1[0] += 0
+            pos1[1] += -1.75
+            pos1[2] += (depth - depth_cutout)  /2
+            p3["pos"] = pos1
+            oobb_base.append_full(thing,**p3)
 
-    #cylinder cutout
-    if True:
-        p3 = copy.deepcopy(kwargs)
-        p3["type"] = "n"
-        p3["shape"] = f"oobb_cylinder"        
-        p3["radius"] = 7.5/2
-        dep = 74
-        p3["depth"] = dep
-        #p3["m"] = "#"
-        pos1 = copy.deepcopy(pos)
-        pos1[0] += 0
-        pos1[1] += dep/2
-        pos1[2] += dep/2 + depth/2
-        p3["pos"] = pos1
-        rot1 = copy.deepcopy(rot)
-        rot1[0] = 90
-        p3["rot"] = rot1
-        oobb_base.append_full(thing,**p3)
+        #cylinder cutout
+        if True:
+            p3 = copy.deepcopy(kwargs)
+            p3["type"] = "n"
+            p3["shape"] = f"oobb_cylinder"        
+            p3["radius"] = 7.5/2
+            depth_less = 60
+            dep = 74 - depth_less
+            p3["depth"] = dep
+            p3["m"] = "#"
+            pos1 = copy.deepcopy(pos)
+            pos1[0] += 0
+            pos1[1] += dep/2  + depth_less/2
+            pos1[2] += dep/2 + depth/2
+            p3["pos"] = pos1
+            rot1 = copy.deepcopy(rot)
+            rot1[0] = 90
+            p3["rot"] = rot1
+            oobb_base.append_full(thing,**p3)
 
-    #add holes
-        p3 = copy.deepcopy(kwargs)
-        p3["type"] = "n"
-        p3["shape"] = f"oobb_cylinder"        
-        p3["radius"] = 7.5/2
-        dep = 66.5
-        p3["depth"] = dep
-        p3["m"] = "#"
-        pos1 = copy.deepcopy(pos)
-        pos1[0] += 0
-        pos1[1] += dep/2 - 7.5/2
-        pos1[2] += dep/2 + depth/2
-        p3["pos"] = pos1
-        rot1 = copy.deepcopy(rot)
-        rot1[0] = 90
-        p3["rot"] = rot1
-        oobb_base.append_full(thing,**p3)
+        
 
     #add countersunk screws
     if True:
